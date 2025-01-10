@@ -1,0 +1,141 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="batchSummary " language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8d70793b-4f95-454b-844b-6cc3d4a0bea3">
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MySQL"/>
+	<parameter name="studentCountFailed" class="java.lang.Integer"/>
+	<parameter name="studentCountPassed" class="java.lang.Integer"/>
+	<parameter name="courseName" class="java.lang.String"/>
+	<parameter name="batch" class="java.lang.String"/>
+	<parameter name="totalExamPassPercentage" class="java.lang.String"/>
+	<parameter name="studentCountTotal" class="java.lang.Integer"/>
+	<parameter name="totalOverallPassPercentage" class="java.lang.String"/>
+	<parameter name="totalCWPassPercentage" class="java.lang.String"/>
+	<field name="moduleName" class="java.lang.String"/>
+	<field name="examPassPercentage" class="java.lang.String"/>
+	<field name="cwPassPercentage" class="java.lang.String"/>
+	<field name="totalPassPercentage" class="java.lang.String"/>
+	<field name="createdAt" class="java.lang.String"/>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="9d79f688-bd15-4954-985b-3d3db5b48bcf" x="0" y="20" width="410" height="36" fontName="Segoe UI Semibold" fontSize="26.0" bold="true">
+			<text><![CDATA[Batch Results Summary]]></text>
+		</element>
+		<element kind="staticText" uuid="611d3dea-915d-4d42-bee5-12e77bf78268" x="0" y="10" width="220" height="14">
+			<text><![CDATA[Student Results Management System]]></text>
+		</element>
+	</title>
+	<pageHeader height="60" splitType="Stretch">
+		<element kind="line" uuid="52d5707a-9f46-48e1-a68c-8c79f3ea4d3b" x="-23" y="0" width="600" height="1">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+		</element>
+		<element kind="staticText" uuid="721ac820-d211-4838-8156-b3fc604575eb" x="10" y="10" width="60" height="20" fontSize="12.0" vTextAlign="Middle">
+			<text><![CDATA[Course:]]></text>
+		</element>
+		<element kind="staticText" uuid="630bb3dd-e07b-4564-9728-a374c735424b" x="10" y="29" width="60" height="20" fontSize="12.0" vTextAlign="Middle">
+			<text><![CDATA[Batch:]]></text>
+		</element>
+		<element kind="textField" uuid="c8dac7bb-a456-45c9-b3be-5b2709db61a8" x="70" y="10" width="246" height="20" fontSize="12.0" textAdjust="ScaleFont" blankWhenNull="true" hTextAlign="Left" vTextAlign="Middle">
+			<expression><![CDATA[$P{courseName}]]></expression>
+		</element>
+		<element kind="textField" uuid="4c8363c3-9c3a-4e14-bb56-3158e9c9ad06" x="70" y="29" width="110" height="20" fontSize="12.0" textAdjust="ScaleFont" blankWhenNull="true" hTextAlign="Left" vTextAlign="Middle">
+			<expression><![CDATA[$P{batch}]]></expression>
+		</element>
+		<element kind="textField" uuid="5859981e-43f9-4455-b33a-1c99bbc45836" x="457" y="14" width="100" height="16" pattern="MMMMM dd, yyyy">
+			<expression><![CDATA[new java.util.Date()]]></expression>
+		</element>
+		<element kind="textField" uuid="1c9657ba-7e5f-4c29-ae54-81a1acd366e5" x="457" y="30" width="100" height="30" pattern="HH:mm">
+			<expression><![CDATA[new java.util.Date()]]></expression>
+		</element>
+	</pageHeader>
+	<columnHeader height="52" splitType="Stretch">
+		<element kind="staticText" uuid="f29b9d7e-2a7f-413a-8eba-757956e2a9e9" x="10" y="19" width="154" height="16" hTextAlign="Left" vTextAlign="Middle">
+			<text><![CDATA[Module]]></text>
+		</element>
+		<element kind="staticText" uuid="e7de3a62-d392-48c5-8ae3-0f2e9973b673" x="236" y="9" width="80" height="33" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Pass Percentage [Exam]]]></text>
+		</element>
+		<element kind="staticText" uuid="182a8171-af61-48f2-8171-22c8fdd8ed88" x="340" y="11" width="80" height="33" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Pass Percentage [CW]]]></text>
+		</element>
+		<element kind="staticText" uuid="3acd39e7-4d74-4c6b-bf71-cea23377893d" x="450" y="11" width="84" height="33" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Pass Percentage [Total]]]></text>
+		</element>
+		<element kind="line" uuid="3462b14b-f7ea-471c-8521-5a01cd0640b2" x="-23" y="0" width="600" height="1">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+		</element>
+		<element kind="line" uuid="99e634cf-2a33-4c62-8c67-a79597bb8919" x="-23" y="48" width="600" height="1">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<property name="com.jaspersoft.studio.unit.width" value="px"/>
+			<property name="com.jaspersoft.studio.unit.x" value="px"/>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="42" splitType="Stretch">
+			<element kind="textField" uuid="4cef7abe-4e29-4cb6-9c99-34320357efd8" x="10" y="11" width="210" height="20" textAdjust="ScaleFont" linkType="None" linkTarget="Self" blankWhenNull="true" hTextAlign="Left" vTextAlign="Middle">
+				<expression><![CDATA[$F{moduleName}]]></expression>
+			</element>
+			<element kind="textField" uuid="d8f5afb2-c085-4ddc-9941-7a694aaf6333" x="237" y="11" width="79" height="20" textAdjust="ScaleFont" blankWhenNull="true" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{examPassPercentage}]]></expression>
+			</element>
+			<element kind="textField" uuid="6c489ac5-2045-4222-8eac-11d189b512a1" x="340" y="11" width="80" height="20" textAdjust="ScaleFont" blankWhenNull="true" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{cwPassPercentage}]]></expression>
+			</element>
+			<element kind="textField" uuid="1961252d-ffec-4f55-8d42-a2a40693c562" x="452" y="11" width="80" height="20" textAdjust="ScaleFont" blankWhenNull="true" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{totalPassPercentage}]]></expression>
+			</element>
+			<element kind="textField" uuid="f9419954-6c87-48a1-b41e-5c0ec031c625" x="150" y="11" width="14" height="20" fontSize="1.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$F{createdAt}]]></expression>
+			</element>
+			<element kind="line" uuid="6d927668-e310-470a-8681-d2422bc481f5" x="-20" y="40" width="600" height="1" forecolor="rgba(0, 0, 0, 0.19607843)">
+				<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				<property name="com.jaspersoft.studio.unit.x" value="px"/>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="10" splitType="Stretch"/>
+	<pageFooter height="59" splitType="Stretch">
+		<element kind="textField" uuid="49758e0d-0eb5-4d49-9647-434b7a01ebb1" x="180" y="16" width="100" height="26" fontSize="8.0" hTextAlign="Right">
+			<expression><![CDATA["Page " + $V{PAGE_NUMBER}]]></expression>
+		</element>
+		<element kind="textField" uuid="6f85c0ad-83a8-43a4-afe9-cecf0eb653af" x="280" y="16" width="100" height="26" fontSize="8.0" evaluationTime="Report" hTextAlign="Left">
+			<expression><![CDATA[" of " + $V{PAGE_NUMBER}]]></expression>
+		</element>
+	</pageFooter>
+	<summary height="135" splitType="Stretch">
+		<element kind="textField" uuid="495ebe3f-1795-4789-9afe-fd51a5c93bb5" x="241" y="26" width="70" height="16" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$P{totalExamPassPercentage}]]></expression>
+		</element>
+		<element kind="textField" uuid="f79f55c8-330d-4f08-a54c-eb0ec70e2967" x="345" y="26" width="70" height="16" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$P{totalCWPassPercentage}]]></expression>
+		</element>
+		<element kind="textField" uuid="dab378cc-aa57-4197-99fe-f3435c99bf3a" x="457" y="26" width="70" height="16" hTextAlign="Center" vTextAlign="Middle">
+			<expression><![CDATA[$P{totalOverallPassPercentage}]]></expression>
+		</element>
+		<element kind="staticText" uuid="47611018-9ae4-4cfd-87b3-491d05b1244a" x="160" y="26" width="60" height="16" fontSize="10.0" hTextAlign="Right" vTextAlign="Middle">
+			<text><![CDATA[Overall]]></text>
+		</element>
+		<element kind="staticText" uuid="b91197ee-e606-44d9-bb57-1a39b51954ca" x="233" y="90" width="88" height="16" fontSize="10.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Total Students]]></text>
+		</element>
+		<element kind="staticText" uuid="d21a4744-2b2f-489a-b99b-5648c2e356b4" x="345" y="90" width="68" height="16" fontSize="10.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Passed]]></text>
+		</element>
+		<element kind="staticText" uuid="f0902ba7-508f-42d0-ab0a-bab0ee25334b" x="457" y="90" width="68" height="16" fontSize="10.0" hTextAlign="Center" vTextAlign="Middle">
+			<text><![CDATA[Failed]]></text>
+		</element>
+		<element kind="textField" uuid="8acd11de-078b-48ee-b31a-25f8227ced28" x="233" y="110" width="88" height="20" hTextAlign="Center">
+			<expression><![CDATA[$P{studentCountTotal}]]></expression>
+		</element>
+		<element kind="textField" uuid="2a1c9b87-0436-4896-90e8-143eecf946bb" x="345" y="110" width="66" height="20" hTextAlign="Center">
+			<expression><![CDATA[$P{studentCountPassed}]]></expression>
+		</element>
+		<element kind="textField" uuid="936adfc0-df9c-4ee1-bdcd-3a2359d341b4" x="457" y="110" width="66" height="20" hTextAlign="Center">
+			<expression><![CDATA[$P{studentCountFailed}]]></expression>
+		</element>
+	</summary>
+</jasperReport>
