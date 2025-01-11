@@ -32,9 +32,9 @@ Download and extract the project folder from the provided zip file.
 2. Import the database structure and sample data using the provided `database.sql` script (if included).
 3. Update the database connection details in `Database.java` or the configuration file (if externalized):
    ```java
-   String url = "jdbc:mysql://localhost:3306/student_results";
+   String url = "jdbc:mysql://localhost:3306/student_result_management";
    String user = "root";
-   String password = "yourpassword";
+   String password = "password";
    ```
 
 ### 4. Import Project into NetBeans
@@ -64,10 +64,4 @@ The following dependencies are managed through Maven (`pom.xml`):
 ## Notes
 - Ensure the MySQL server is running before launching the application.
 - Modify `Database.java` to match your local MySQL username and password.
-- For any issues, refer to the project documentation or contact the developer.
-
-## Developer Information
-- **Author**: [Your Name]
-- **Email**: [Your Email Address]
-- **Version**: 1.0
 
